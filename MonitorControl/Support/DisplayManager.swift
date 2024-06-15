@@ -185,6 +185,14 @@ class DisplayManager {
         self.addDisplay(display: otherDisplay)
       }
     }
+    
+    if (self.displays.count == 2) {
+      for display in self.displays {
+        if (display.isBuiltIn()) {
+          display.setBrightness(0);
+        }
+      }
+    }
   }
 
   func setupOtherDisplays(firstrun: Bool = false) {
